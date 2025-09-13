@@ -1,0 +1,373 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Как я провёл лето</title>
+    <link rel="icon" type="image/x-icon" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24' fill='%23e94560'><path d='M12 2C15.9 2 19 5.1 19 9c0 5.3-7 13-7 13S5 14.3 5 9c0-3.9 3.1-7 7-7zm0 9.5c1.4 0 2.5-1.1 2.5-2.5S13.4 6.5 12 6.5 9.5 7.6 9.5 9s1.1 2.5 2.5 2.5z'/></svg>">
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+        }
+        
+        body {
+            background-color: #1a1a2e;
+            color: #e6e6e6;
+            line-height: 1.6;
+        }
+        
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 20px;
+        }
+        
+        .header-content {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            gap: 20px;
+            flex-wrap: wrap;
+        }
+        
+        .logo {
+            width: 80px;
+            height: 80px;
+            background: linear-gradient(135deg, #e94560 0%, #8fe3cf 100%);
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 2rem;
+            font-weight: bold;
+            color: #1a1a2e;
+            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.3);
+            animation: pulse 2s infinite;
+        }
+        
+        @keyframes pulse {
+            0% { transform: scale(1); }
+            50% { transform: scale(1.05); }
+            100% { transform: scale(1); }
+        }
+        
+        .header-text {
+            text-align: center;
+        }
+        
+        header {
+            margin-bottom: 20px;
+            padding: 30px 20px;
+            background: linear-gradient(135deg, #16213e 0%, #0f3460 100%);
+            border-radius: 10px;
+            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.5);
+        }
+        
+        h1 {
+            font-size: 2.5rem;
+            color: #e94560;
+            margin-bottom: 10px;
+            text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.5);
+        }
+        
+        .subtitle {
+            font-size: 1.2rem;
+            color: #8fe3cf;
+        }
+        
+        nav {
+            background: linear-gradient(135deg, #0f3460 0%, #16213e 100%);
+            display: flex;
+            justify-content: center;
+            gap: 10px;
+            padding: 15px;
+            margin: 20px auto;
+            border-radius: 10px;
+            box-shadow: 0 4px 8px rgba(0,0,0,0.2);
+            max-width: 800px;
+        }
+        
+        nav button {
+            color: white;
+            text-decoration: none;
+            font-weight: bold;
+            padding: 10px 20px;
+            border-radius: 20px;
+            transition: all 0.3s ease;
+            background: rgba(255, 255, 255, 0.1);
+            border: none;
+            cursor: pointer;
+            font-size: 1rem;
+            display: flex;
+            align-items: center;
+            gap: 8px;
+        }
+        
+        nav button:hover, nav button.active {
+            background: #e94560;
+            transform: translateY(-2px);
+        }
+        
+        section {
+            max-width: 1000px;
+            margin: 20px auto;
+            background: linear-gradient(135deg, #16213e 0%, #1a1a2e 100%);
+            padding: 30px;
+            border-radius: 15px;
+            box-shadow: 0 10px 20px rgba(0, 0, 0, 0.3);
+            display: none;
+            animation: fadeIn 0.5s ease;
+        }
+        
+        section.active {
+            display: block;
+        }
+        
+        @keyframes fadeIn {
+            from { opacity: 0; transform: translateY(20px); }
+            to { opacity: 1; transform: translateY(0); }
+        }
+        
+        h2 {
+            color: #e94560;
+            font-size: 1.8rem;
+            margin-bottom: 20px;
+            border-left: 4px solid #e94560;
+            padding-left: 15px;
+            display: flex;
+            align-items: center;
+            gap: 10px;
+        }
+        
+        p {
+            margin-bottom: 15px;
+            color: #c5c5c5;
+            font-size: 1rem;
+            line-height: 1.6;
+        }
+
+        .movie-entry {
+            background: rgba(0, 0, 0, 0.2);
+            padding: 20px;
+            border-radius: 10px;
+            margin-bottom: 25px;
+            transition: transform 0.3s ease;
+        }
+
+        .movie-entry:hover {
+            transform: translateY(-5px);
+            background: rgba(0, 0, 0, 0.3);
+        }
+
+        .movie-entry img {
+            width: 100%;
+            max-width: 250px;
+            border-radius: 8px;
+            display: block;
+            margin: 15px 0;
+            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.5);
+        }
+
+        .movie-rating {
+            display: inline-block;
+            background: #e94560;
+            color: white;
+            padding: 5px 12px;
+            border-radius: 20px;
+            font-weight: bold;
+            margin-top: 10px;
+        }
+        
+        footer {
+            text-align: center;
+            margin-top: 50px;
+            padding: 25px;
+            color: #8fe3cf;
+            font-size: 0.9rem;
+            background: linear-gradient(135deg, #16213e 0%, #0f3460 100%);
+            border-radius: 10px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            gap: 15px;
+        }
+        
+        .footer-logo {
+            width: 30px;
+            height: 30px;
+            background: linear-gradient(135deg, #e94560 0%, #8fe3cf 100%);
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-weight: bold;
+            color: #1a1a2e;
+            font-size: 0.8rem;
+        }
+
+        @media (max-width: 768px) {
+            .header-content {
+                flex-direction: column;
+                text-align: center;
+            }
+            
+            .logo {
+                width: 70px;
+                height: 70px;
+                font-size: 1.5rem;
+            }
+            
+            nav {
+                flex-direction: column;
+                align-items: center;
+                gap: 10px;
+            }
+            
+            nav button {
+                width: 80%;
+                text-align: center;
+                justify-content: center;
+            }
+            
+            h1 {
+                font-size: 2rem;
+            }
+            
+            section {
+                padding: 20px;
+                margin: 20px auto;
+            }
+            
+            footer {
+                flex-direction: column;
+                gap: 10px;
+            }
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <header>
+            <div class="header-content">
+                <div class="logo">Л</div>
+                <div class="header-text">
+                    <h1>🎬 Как я провёл лето</h1>
+                    <p class="subtitle">Мои впечатления и воспоминания</p>
+                </div>
+            </div>
+        </header>
+
+        <nav>
+            <button class="nav-btn active" data-target="work">
+                💼 Работа
+            </button>
+            <button class="nav-btn" data-target="movies">
+                🎬 Фильмы
+            </button>
+            <button class="nav-btn" data-target="trips">
+                🌍 Поездки
+            </button>
+        </nav>
+
+        <section id="work" class="active">
+            <h2>💼 Работа</h2>
+            <p>Этим летом я устроился на подработку. Это был отличный опыт: я научился работать в команде, планировать время и решать задачи. Работа помогла мне стать более ответственным и самостоятельным.</p>
+        </section>
+
+        <section id="movies">
+            <h2>🎬 Фильмы и аниме</h2>
+            
+            <div class="movie-entry">
+                <p><strong>Начало (Inception)</strong></p>
+                <img src="https://static.kinoafisha.info/k/movie_posters/800x1200/upload/movie_posters/8/0/0/7794008/286676351653465386.jpg" alt="Постер Начало">
+                <p>Научная фантастика, триллер. Группа профессионалов крадёт идеи, проникая в сны. Головоломка о реальности и подсознании.</p>
+                <span class="movie-rating">9/10</span>
+            </div>
+            
+            <div class="movie-entry">
+                <p><strong>Интерстеллар (Interstellar)</strong></p>
+                <img src="https://i.pinimg.com/736x/8e/0d/ab/8e0dab8699be85720ce55845065bf6dc.jpg" alt="Постер Интерстеллар">
+                <p>Космос, драма. Экспедиция ищет новый дом для человечества через червоточину.</p>
+                <span class="movie-rating">10/10</span>
+            </div>
+            
+            <div class="movie-entry">
+                <p><strong>Токийский гуль (Tokyo Ghoul)</strong></p>
+                <img src="https://i.pinimg.com/736x/c5/56/7f/c5567f9743c2d839aef29ba7ebea7748.jpg" alt="Постер Токийский гуль">
+                <p>Ужасы, драма. Студент становится полугулем и учится жить между мирами.</p>
+                <span class="movie-rating">8/10</span>
+            </div>
+            
+            <div class="movie-entry">
+                <p><strong>Клинок, рассекающий демонов (Demon Slayer)</strong></p>
+                <img src="https://avatars.mds.yandex.net/i?id=d86c5bcebc7b398e14964c4ddf6c70f6_l-4576144-images-thumbs&n=13" alt="Постер Клинок, рассекающий демонов">
+                <p>Экшен, фэнтези. Мальчик борется с демонами, чтобы спасти сестру.</p>
+                <span class="movie-rating">9/10</span>
+            </div>
+            
+            <div class="movie-entry">
+                <p><strong>Евангелион (Neon Genesis Evangelion)</strong></p>
+                <img src="https://i.pinimg.com/originals/a5/78/3f/a5783f2ef20916323a4455751020ee1b.png" alt="Постер Евангелион">
+                <p>Меха, психология. Подростки управляют гигантскими роботами, сражаясь с таинственными существами.</p>
+                <span class="movie-rating">7/10</span>
+            </div>
+        </section>
+
+        <section id="trips">
+            <h2>🌍 Поездки</h2>
+            <p>Я путешествовал по разным городам и деревням. Увидел красивые места, познакомился с новыми людьми и попробовал местную кухню. Эти поездки подарили много радости и незабываемых впечатлений.</p>
+        </section>
+
+        <footer>
+            <div class="footer-logo">Л</div>
+            <p>Коллекция впечатлений о лете © 2023</p>
+        </footer>
+    </div>
+
+    <script>
+        document.addEventListener('DOMContentLoaded', function() {
+            const navButtons = document.querySelectorAll('.nav-btn');
+            const sections = document.querySelectorAll('section');
+            
+            // Функция для переключения разделов
+            function showSection(sectionId) {
+                // Скрываем все разделы
+                sections.forEach(section => {
+                    section.classList.remove('active');
+                });
+                
+                // Убираем активный класс со всех кнопок
+                navButtons.forEach(button => {
+                    button.classList.remove('active');
+                });
+                
+                // Показываем выбранный раздел
+                document.getElementById(sectionId).classList.add('active');
+                
+                // Активируем соответствующую кнопку
+                document.querySelector(`[data-target="${sectionId}"]`).classList.add('active');
+                
+                // Обновляем URL с якорем
+                window.history.replaceState(null, null, `#${sectionId}`);
+            }
+            
+            // Добавляем обработчики событий для кнопок
+            navButtons.forEach(button => {
+                button.addEventListener('click', function() {
+                    const targetSection = this.getAttribute('data-target');
+                    showSection(targetSection);
+                });
+            });
+            
+            // Обработка якорных ссылок при загрузке страницы
+            const hash = window.location.hash.substring(1);
+            if (hash && document.getElementById(hash)) {
+                showSection(hash);
+            }
+        });
+    </script>
+</body>
+</html>
